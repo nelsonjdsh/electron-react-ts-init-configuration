@@ -28,7 +28,7 @@ I followed the steps below to make up with this project:
 
 - Create a new ReactJS app:
   ```bash
-  create-react-app <project name>
+  create-react-app <project name> --template typescript
   cd <project name>
   ```
 
