@@ -1,25 +1,22 @@
 const { app, BrowserWindow } = require("electron");
 
 const path = require('path');
+const url = require('url')
 
 let mainWindow;
 function createWindow() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      webSecurity: false
-    }
-  });
 
   // TODO: Fix the problem that produces blank screen using a local server instead of the production building.
-  //mainWindow.loadFile(process.env.ELECTRON_START_URL || path.join(__dirname, '/../build/index.html'))
-  mainWindow.loadFile(path.join(__dirname, '/../build/index.html'))
+  const startUrl =  'http://localhost:3000' || url.format({
+    pathname: path.join(__dirname, '/../build/index.html'),
+    protocol: 'file:',
+    slashes: true,
+  });
 
-  // Open the DevTools.
+  // Create the browser window.
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow.loadURL(startUrl)
   mainWindow.webContents.openDevTools();
-
   mainWindow.on('closed', () => mainWindow = null);
 }
 
