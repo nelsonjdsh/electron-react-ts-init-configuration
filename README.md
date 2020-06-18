@@ -37,7 +37,7 @@ I followed the steps below to make up with this project:
   ```bash
   npm install --save-dev electron
   ```
-- Create a file into `src` directory called `electron-main.js`. And paste the following code:
+- Create a file into `src` directory called `electron-main.js` and paste the following code:
 
   ```js
   const { app, BrowserWindow } = require("electron");
@@ -84,7 +84,7 @@ I followed the steps below to make up with this project:
   "main": "src/electron-main.js",
   "scripts": {
     // ...
-    "start": "export BROWSER=none && react-scripts start"
+    "start": "export BROWSER=none && react-scripts start",
     "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
     "react-start": "react-scripts start"
     //..
